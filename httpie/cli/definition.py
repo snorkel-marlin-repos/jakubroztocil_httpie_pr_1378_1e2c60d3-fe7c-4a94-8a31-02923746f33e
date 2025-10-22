@@ -44,7 +44,7 @@ options = ParserSpec(
 #######################################################################
 
 positional_arguments = options.add_group(
-    'Positional arguments',
+    'Positional Arguments',
     description="""
     These arguments come after any flags and in the order they are listed here.
     Only URL is required.
@@ -145,7 +145,7 @@ positional_arguments.add_argument(
 # Content type.
 #######################################################################
 
-content_types = options.add_group('Predefined content types')
+content_types = options.add_group('Predefined Content Types')
 
 content_types.add_argument(
     '--json',
@@ -219,7 +219,7 @@ content_types.add_argument(
 # Content processing.
 #######################################################################
 
-processing_options = options.add_group('Content processing options')
+processing_options = options.add_group('Content Processing Options')
 
 processing_options.add_argument(
     '--compress',
@@ -284,7 +284,7 @@ _unsorted_kwargs = {
     'dest': 'format_options',
 }
 
-output_processing = options.add_group('Output processing')
+output_processing = options.add_group('Output Processing')
 
 output_processing.add_argument(
     '--pretty',
@@ -398,7 +398,7 @@ output_processing.add_argument(
 # Output options
 #######################################################################
 
-output_options = options.add_group('Output options')
+output_options = options.add_group('Output Options')
 
 output_options.add_argument(
     '--print',
@@ -494,7 +494,14 @@ output_options.add_argument(
     '-P',
     dest='output_options_history',
     metavar='WHAT',
-    help=Qualifiers.SUPPRESS,
+    short_help='--print for intermediary requests/responses.',
+    help="""
+    The same as --print, -p but applies only to intermediary requests/responses
+    (such as redirects) when their inclusion is enabled with --all. If this
+    options is not specified, then they are formatted the same way as the final
+    response.
+
+    """,
 )
 output_options.add_argument(
     '--stream',
